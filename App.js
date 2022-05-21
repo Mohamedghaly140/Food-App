@@ -4,10 +4,12 @@ import Search from "./src/components/Search";
 
 const isAndroid = Platform.OS === "android";
 
+const barStyle = isAndroid ? "light-content" : "dark-content";
+
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
-      <StatusBar barStyle={isAndroid ? "light-content" : "dark-content"} />
+      <StatusBar barStyle={barStyle} />
       <Header />
       <Search />
     </SafeAreaView>
