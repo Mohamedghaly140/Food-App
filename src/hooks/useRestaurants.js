@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import yelp from "../api/yelp";
 
-export default (initialTerm = "Burger") => {
+export default () => {
   const [results, setResults] = useState({
     data: null,
     loading: false,
     error: null,
   });
 
-  const searchRestaurants = async (searchTerm) => {
+  const searchRestaurants = async searchTerm => {
     setResults({
       data: null,
       loading: true,

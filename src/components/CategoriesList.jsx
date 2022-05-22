@@ -1,7 +1,9 @@
 import React from "react";
-import { StyleSheet, FlatList } from "react-native";
+import { StyleSheet, FlatList, View, Dimensions } from "react-native";
 import { CATEGORIES } from "../data/data";
 import CategoryItem from "./CategoryItem";
+
+const { height } = Dimensions.get("window");
 
 const CategoriesList = ({ selectedCategory, onSelectCategory }) => {
   return (
@@ -28,5 +30,9 @@ export default CategoriesList;
 const styles = StyleSheet.create({
   contentContainerStyle: {
     paddingHorizontal: 22,
+    paddingBottom: height * 0.12,
+  },
+  listWrapper: {
+    marginBottom: 16,
   },
 });

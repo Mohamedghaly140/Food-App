@@ -33,7 +33,7 @@ const App = () => {
         selectedCategory={term}
         onSelectCategory={onSelectCategoryHandler}
       />
-      <Restaurants />
+      <Restaurants term={term} />
     </SafeAreaView>
   );
 };
