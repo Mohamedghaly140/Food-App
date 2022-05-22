@@ -1,13 +1,8 @@
 import React, { useEffect } from "react";
-import {
-  StyleSheet,
-  Text,
-  View,
-  FlatList,
-  ActivityIndicator,
-} from "react-native";
+import { StyleSheet, Text, View, FlatList } from "react-native";
 import useRestaurants from "../hooks/useRestaurants";
 import RestaurantItem from "./RestaurantItem";
+import Spinner from "./Spinner";
 
 const Restaurants = ({ term = "" }) => {
   const [{ data, loading, error }, searchRestaurants] = useRestaurants();
@@ -16,10 +11,8 @@ const Restaurants = ({ term = "" }) => {
     if (term.trim().length === 0) {
       return;
     }
-    // searchRestaurants(term);
+    searchRestaurants(term);
   }, [term]);
-
-  console.log({ data });
 
   if (error) {
     return (
@@ -33,9 +26,7 @@ const Restaurants = ({ term = "" }) => {
     <>
       <Text style={styles.header}>Top Restaurants</Text>
       {loading ? (
-        <View style={styles.center}>
-          <ActivityIndicator size="large" />
-        </View>
+        <Spinner />
       ) : (
         <FlatList
           data={data}
@@ -44,6 +35,7 @@ const Restaurants = ({ term = "" }) => {
           keyExtractor={({ name }, idx) => `${name}-${idx}`}
           renderItem={({ item }) => (
             <RestaurantItem
+              id={item.id}
               name={item.name}
               price={item.price}
               rating={item.rating}

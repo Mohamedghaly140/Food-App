@@ -1,12 +1,30 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  ActivityIndicator,
+} from "react-native";
 import { elevation } from "../common/styles";
+import { Image } from "react-native-elements";
 
-const RestaurantItem = ({ imageUri, name, rating, price }) => {
+const RestaurantItem = ({ id, imageUri, name, rating, price }) => {
+  const navigation = useNavigation();
+
   return (
-    <View style={styles.container}>
+    <TouchableOpacity
+      activeOpacity={0.7}
+      style={styles.container}
+      onPress={() => navigation.navigate("Restaurant", { id })}
+    >
       <View style={styles.imageWrapper}>
-        <Image style={styles.image} source={{ uri: imageUri }} />
+        <Image
+          style={styles.image}
+          source={{ uri: imageUri }}
+          PlaceholderContent={<ActivityIndicator size="small" />}
+        />
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.name}>{name}</Text>
@@ -15,7 +33,7 @@ const RestaurantItem = ({ imageUri, name, rating, price }) => {
           <Text style={styles.price}>{price}</Text>
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 };
 

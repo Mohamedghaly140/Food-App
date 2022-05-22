@@ -14,7 +14,7 @@ export default Header;
 
 const styles = StyleSheet.create({
   header: {
-    marginBottom: 16,
+    marginVertical: 16,
   },
   textSmall: {
     fontSize: 30,
