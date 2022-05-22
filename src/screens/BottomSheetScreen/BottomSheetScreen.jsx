@@ -13,7 +13,7 @@ const elevation = {
   elevation: 24,
 };
 
-const BottomSheetApp = () => {
+const BottomSheetScreen = () => {
   const sheetRef = useRef(null);
 
   const snapPoints = useMemo(() => ["20%", "75%"]);
@@ -44,7 +44,7 @@ const BottomSheetApp = () => {
   );
 };
 
-export default BottomSheetApp;
+export default BottomSheetScreen;
 
 const styles = StyleSheet.create({
   container: {
