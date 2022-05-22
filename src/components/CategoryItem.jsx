@@ -27,7 +27,7 @@ const CategoryItem = ({
       onPress={onSelectCategory}
     >
       <View style={styles.imageWrapper}>
-        <Image source={imageUri} style={styles.image} resizeMode="center" />
+        <Image source={imageUri} style={styles.image} resizeMode="contain" />
       </View>
       <Text style={styles.name}>{name}</Text>
     </Pressable>
